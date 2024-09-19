@@ -7,8 +7,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "tbl_email")
+@Table(name = "email")
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
@@ -26,19 +28,23 @@ public class Email {
             allocationSize = 1
     )
     private Long id;
-
-    private String remetente;
-    private String copia;
-
-    @Column(name = "CORPO_EMAIL")
-    private String body_email;
-
-    private String assunto;
-    private String destinatario;
-    private String anexo;
-    private String categoria;
-    private String senha;
-
-
+    @Column(name = "snd")
+    private String sender;
+    @Column(name = "bdy")
+    private String body;
+    @Column(name = "sbj")
+    private String subject;
+    @Column(name = "rcp")
+    private String recipient;
+    @Column(name = "atc")
+    private String attachment;
+    @Column(name = "ctg")
+    private String category;
+    @Column(name = "dat")
+    private LocalDateTime date;
+    @Column(name = "red")
+    private boolean read;
+    @Column(name = "ibx")
+    private boolean inbox;
 
 }
